@@ -23,19 +23,23 @@ const getDerivedRSKAddressInformation = function(btcPrivateKey){
     return information;
 }
 
-const getDerivedBTCAddressInformation = function(rskPrivateKey, network = NETWORKS.MAINNET){
+const getDerivedBTCAddressInformation = function(rskPrivateKey, networkType = NETWORKS.MAINNET){
     //First check if the private key is valid!
     if (!isValidRskPrivateKey(rskPrivateKey)) return null;
-    let information = {};    
+    let information = {};
 
     //Get BTC PrivateKey
-    information.privateKey = _getBtcPrivateKey(rskPrivateKey, network);    
+    information.privateKey = _getBtcPrivateKey(rskPrivateKey, networkType);
+    
+    //Get bitcoin network
+    const network = networkType == NETWORKS.MAINNET ? bitcoin.networks.bitcoin : bitcoin.networks.testnet;    
 
     //Get BTC Address
-    var keyPair = bitcoin.ECPair.fromWIF(information.privateKey);
+    var keyPair = bitcoin.ECPair.fromWIF(information.privateKey, network);
     information.address = bitcoin.payments.p2pkh({
-        pubkey: keyPair.publicKey
-    }).address;    
+        pubkey: keyPair.publicKey,
+        network: network            
+    }).address;
 
     return information;
 }
