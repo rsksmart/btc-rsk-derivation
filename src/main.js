@@ -19,10 +19,12 @@ module.exports = {
      * 
      * @param {String} btcPrivateKey
      * 
+     * @param {NETWORKS} [networkType]
+     * 
      * @returns {Boolean}
      */
-    isValidBtcPrivateKey: (btcPrivateKey) => {        
-        return utils.isValidBtcPrivateKey(btcPrivateKey);
+    isValidBtcPrivateKey: (btcPrivateKey, networkType) => {        
+        return utils.isValidBtcPrivateKey(btcPrivateKey, networkType);
     },
     /**
      * Given a `string` representing a RSK private key, this function will indicate with a `boolean` if the private key is valid or not.
@@ -43,10 +45,12 @@ module.exports = {
      * 
      * @param {String} btcPrivateKey
      * 
+     * @param {NETWORKS} [networkType]
+     * 
      * @returns {Information}
      */
-    getDerivedRSKAddressInformation: (btcPrivateKey) => {
-        return utils.getDerivedRSKAddressInformation(btcPrivateKey);
+    getDerivedRSKAddressInformation: (btcPrivateKey, networkType) => {
+        return utils.getDerivedRSKAddressInformation(btcPrivateKey, networkType);
     },
     /**
      * Given a `string` representing a RSK private key and the network(`mainnet` or `testnet`) , this function will return derived information. It includes the BTC address (`p2pkh`) and private key.
