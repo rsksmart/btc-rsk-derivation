@@ -9,6 +9,7 @@
         "address",
         "crypto"
     ],
+    "main": "src/main.js",
     "license": "MIT",
     "scripts": {
         "test": "mocha test/*"

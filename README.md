@@ -13,13 +13,13 @@ run `npm install`.
 ## Methods
 
 ### isValidBtcPrivateKey
-Given a `string` representing a BTC private key, this function will indicate with a `boolean` if the private key is valid or not.
+Given a `string` representing a BTC private key (in WIF format) and the network(`mainnet` or `testnet`), this function will indicate with a `boolean` if the private key is valid or not.
 
 ### isValidRskPrivateKey
 Given a `string` representing a RSK private key, this function will indicate with a `boolean` if the private key is valid or not.
 
 ### getDerivedRSKAddressInformation
-Given a `string` representing a BTC private key, this function will return derived information. It includes the RSK address and private key. e.g.:
+Given a `string` representing a BTC private key (in WIF format) and the network(`mainnet` or `testnet`), this function will return derived information. It includes the RSK address and private key. e.g.:
 
 ```
 {

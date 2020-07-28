@@ -5,13 +5,13 @@ const expect = chai.expect;
 const validator = require('../src/main');
 const { NETWORKS } = require('../src/crypto/constants');
 
-function validBTC (btcPrivteKey, networkType = NETWORKS.MAINNET) {
-    var result = validator.isValidBtcPrivateKey(btcPrivteKey, networkType);
+function validBTC (btcPrivteKeyWIF, networkType = NETWORKS.MAINNET) {
+    var result = validator.isValidBtcPrivateKey(btcPrivteKeyWIF, networkType);
     expect(result).to.be.true;
 }
 
-function invalidBTC (btcPrivteKey) {
-    var result = validator.isValidBtcPrivateKey(btcPrivteKey);
+function invalidBTC (btcPrivteKeyWIF) {
+    var result = validator.isValidBtcPrivateKey(btcPrivteKeyWIF);
     expect(result).to.be.false;
 }
 
@@ -25,14 +25,14 @@ function invalidRSK (rskPrivateKey) {
     expect(result).to.be.false;
 }
 
-function validGetDerivedRSKAddressInformation(btcPrivateKey, expectedAddress, expectedPrivateKey, networkType) {
-    let result = validator.getDerivedRSKAddressInformation(btcPrivateKey);
+function validGetDerivedRSKAddressInformation(btcPrivateKeyWIF, expectedAddress, expectedPrivateKey, networkType) {
+    let result = validator.getDerivedRSKAddressInformation(btcPrivateKeyWIF);
     expect(result.address).to.be.equal(expectedAddress);
     expect(result.privateKey).to.be.equal(expectedPrivateKey);
 }
 
-function invalidGetDerivedRSKAddressInformation(btcPrivteKey) {
-    let result = validator.getDerivedRSKAddressInformation(btcPrivteKey);
+function invalidGetDerivedRSKAddressInformation(btcPrivteKeyWIF) {
+    let result = validator.getDerivedRSKAddressInformation(btcPrivteKeyWIF);
     expect(result).to.be.null;
 }
 
@@ -47,9 +47,9 @@ function invalidGetDerivedBTCAddressInformation(rskPrivateKey) {
     expect(result).to.be.null;
 }
 
-function validGetRoundTripInformation(rskPrivateKey, btcPrivateKey, networkType = NETWORKS.MAINNET) {
+function validGetRoundTripInformation(rskPrivateKey, btcPrivateKeyWIF, networkType = NETWORKS.MAINNET) {
     let btc2RskResult = validator.getDerivedBTCAddressInformation(rskPrivateKey, networkType);
-    let rsk2BtcResult = validator.getDerivedRSKAddressInformation(btcPrivateKey, networkType);
+    let rsk2BtcResult = validator.getDerivedRSKAddressInformation(btcPrivateKeyWIF, networkType);
 
     expect(rskPrivateKey).not.be.null;
     expect(rsk2BtcResult).not.be.null;
@@ -61,9 +61,9 @@ function validGetRoundTripInformation(rskPrivateKey, btcPrivateKey, networkType 
     expect(btc2RskResult.privateKey).to.be.equal(validator.getDerivedBTCAddressInformation(rsk2BtcResult.privateKey, networkType).privateKey);
 }
 
-function invalidGetRoundTripInformation(rskPrivateKey, btcPrivateKey, networkType = NETWORKS.MAINNET) {
+function invalidGetRoundTripInformation(rskPrivateKey, btcPrivateKeyWIF, networkType = NETWORKS.MAINNET) {
     let btc2RskResult = validator.getDerivedBTCAddressInformation(rskPrivateKey, networkType);
-    let rsk2BtcResult = validator.getDerivedRSKAddressInformation(btcPrivateKey, networkType);
+    let rsk2BtcResult = validator.getDerivedRSKAddressInformation(btcPrivateKeyWIF, networkType);
 
     if (btc2RskResult == null || rsk2BtcResult == null){
         //There was an error getting information.

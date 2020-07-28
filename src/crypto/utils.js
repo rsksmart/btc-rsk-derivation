@@ -5,12 +5,12 @@ var convertHex = require('convert-hex');
 var bitcoin = require('bitcoinjs-lib');
 const { NETWORKS } = require('./constants');
 
-const getDerivedRSKAddressInformation = function(btcPrivateKey, networkType){    
+const getDerivedRSKAddressInformation = function(btcPrivateKeyWIF, networkType){    
     //First check if the private key is valid!
-    if (!isValidBtcPrivateKey(btcPrivateKey, networkType)) return null; 
+    if (!isValidBtcPrivateKey(btcPrivateKeyWIF, networkType)) return null; 
     
     let information = {};
-    let privKeyBytes = _keyBtcToRskInBytes(btcPrivateKey);
+    let privKeyBytes = _keyBtcToRskInBytes(btcPrivateKeyWIF);
 
     //Get RSK Address
     const myWallet = wallet.fromPrivateKey(Buffer.from(privKeyBytes));
@@ -41,10 +41,10 @@ const getDerivedBTCAddressInformation = function(rskPrivateKey, networkType = NE
     return information;
 }
 
-const isValidBtcPrivateKey = function(btcPrivateKey, networkType = NETWORKS.MAINNET) {    
+const isValidBtcPrivateKey = function(btcPrivateKeyWIF, networkType = NETWORKS.MAINNET) {    
     try {        
         bitcoin.ECPair.fromWIF(
-            btcPrivateKey, 
+            btcPrivateKeyWIF, 
             _getBitcoinNetwork(networkType)
         );
     } catch (error) {        
