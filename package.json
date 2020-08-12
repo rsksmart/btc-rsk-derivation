@@ -1,7 +1,7 @@
 {
-    "name": "btc-rsk-derivation-utility",
+    "name": "btc-rsk-derivation",
     "version": "1.0.0",
-    "description": "Tool to derive btc private key to rsk private key and vice versa",
+    "description": "Tool can be used to derive a BTC private key from an RSK private key and address, and vice versa.",
     "keywords": [
         "btc",
         "bitcoin",
@@ -24,6 +24,6 @@
     "devDependencies": {
         "chai": "^4.2.0",
         "lint": "^0.7.0",
-        "mocha": "^8.0.1"
+        "mocha": "^8.1.1"
     }
 }

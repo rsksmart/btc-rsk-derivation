@@ -1,7 +1,5 @@
-# btc-rsk-derivation-utility
-This tool can be used to derive a BTC private key to RSK private key and address and vice versa.
-
-this tool can be used to derive a BTC private key from an RSK private key and address, and vice versa.
+# btc-rsk-derivation
+This tool can be used to derive a BTC private key from an RSK private key and address, and vice versa.
 
 **You can derive RSK addresses from any valid BTC private key using this tool, but you may only derive RSK private keys from P2PKH BTC private keys.
 This is an RSK limitation.**
