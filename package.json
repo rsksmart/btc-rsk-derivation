@@ -10,7 +10,13 @@
         "crypto"
     ],
     "main": "src/main.js",
-    "license": "MIT",
+    "license": "LGPL-3.0",
+    "author": "RSK Innovation Labs",
+    "bugs": {
+        "url": "https://github.com/rsksmart/btc-rsk-derivation/issues"
+    },
+    "homepage": "https://github.com/rsksmart/btc-rsk-derivation/#readme",
+
     "scripts": {
         "test": "mocha test/*"
     },
