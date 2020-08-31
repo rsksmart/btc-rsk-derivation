@@ -1,6 +1,6 @@
 {
     "name": "btc-rsk-derivation",
-    "version": "1.0.0",
+    "version": "0.0.1",
     "description": "Tool can be used to derive a BTC private key from an RSK private key and address, and vice versa.",
     "keywords": [
         "btc",
