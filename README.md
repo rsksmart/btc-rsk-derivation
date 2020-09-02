@@ -56,19 +56,19 @@ Sample usage:
 **BTC --> RSK**
 
 ```javascript
-const btcRskDerivationUtility = require('btc-rsk-derivation-utility');
+const btcRskDerivation = require('@rsksmart/btc-rsk-derivation');
 let btcPrivateKey = 'Kxj9x4G2Uvw8CbngATxGZLY4K2EFkjty7mumLabJQEhHw9ZLyZTs';
-let addressInformation = btcRskDerivationUtility.getDerivedRSKAddressInformation(btcPrivateKey);
-console.log(`RSK Address ${addressInformation.address}?`);
-console.log(`RSK PrivateKey ${addressInformation.privateKey}?`);
+let addressInformation = btcRskDerivation.getDerivedRSKAddressInformation(btcPrivateKey);
+console.log(`RSK Address ${addressInformation.address}`);
+console.log(`RSK PrivateKey ${addressInformation.privateKey}`);
 ```
 
 **RSK --> BTC**
 
 ```javascript
-const btcRskDerivationUtility = require('btc-rsk-derivation-utility');
+const btcRskDerivation = require('@rsksmart/btc-rsk-derivation');
 let rskPrivateKey = '2cfc1062d5beff50764f3d1b7a8d2d67ac4736c14caceeeb956bcc815c8a0708';
-let addressInformation = btcRskDerivationUtility.getDerivedBTCAddressInformation(rskPrivateKey);
-console.log(`BTC Address ${addressInformation.address}?`);
-console.log(`BTC PrivateKey ${addressInformation.privateKey}?`);
+let addressInformation = btcRskDerivation.getDerivedBTCAddressInformation(rskPrivateKey);
+console.log(`BTC Address ${addressInformation.address}`);
+console.log(`BTC PrivateKey ${addressInformation.privateKey}`);
 ```
