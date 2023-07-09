@@ -28,7 +28,7 @@
     },
     "devDependencies": {
         "chai": "^4.2.0",
-        "lint": "^0.7.0",
+        "lint": "^1.1.2",
         "mocha": "^8.1.1"
     }
 }
